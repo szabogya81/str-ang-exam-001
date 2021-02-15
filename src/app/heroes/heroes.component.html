@@ -1,0 +1,27 @@
+<div class="col-8 offset-2">
+  <input 
+  (keyup)="onChangePhrase($event)"
+  (search)="onChangePhrase($event)"
+    class="form-control mr-sm-2" 
+    type="search" 
+    placeholder="Search"
+    aria-label="Search" >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th (click)="onColumnSelect('id')">#</th>
+        <th (click)="onColumnSelect('name')">Name</th>
+        <th (click)="onColumnSelect('superpower')">Super Power</th>
+        <th (click)="onColumnSelect('address')">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes | filter:phrase | sorter:column">
+        <td>{{ hero.id }}</td>
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.superpower }}</td>
+        <td>{{ hero.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
